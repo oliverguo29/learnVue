@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+    {{a}},{{b}}
+</div>
+
+
+
+
+<script>
+
+    var data ={a:1, b:null}
+
+    // freeze
+    //object.freeze(data)
+
+    var app = new Vue({
+        el: '#app',
+        data: data
+    })
+
+    data.b=100;
+
+    console.log(app.$el==document.getElementById("app"))
+
+</script>
+</body>
+</html>
