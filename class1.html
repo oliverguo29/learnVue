@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定class</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+    <div :class="classObj" class="mydiv2">{{message}}</div>
+</div>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+           message:"hello",
+            classObj:{
+               mydiv1: true,
+                mydiv3:true
+            }
+        }
+    })
+</script>
+
+<style>
+    .mydiv1{
+        front-weight:bold;
+        color: aqua;
+    }
+
+    .mydiv2{
+       font-size: 30px;
+    }
+
+    .mydiv3{
+        border: 1px solid #dedede;
+    }
+
+
+</style>
+
+
+
+</body>
+</html>

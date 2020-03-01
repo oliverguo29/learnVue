@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <div :style="{color:fontColor, fontSize: fontSize+'px'}" class="mydiv2">{{message+'1'}}</div>
+    <div :style="styleObj" class="mydiv2">{{message+'2'}}</div>
+    <div :style="[styleObj,styleObj2]">{{message+'3'}}</div>
+</div>
+
+
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            message:"hello",
+            fontColor: 'red',
+            fontSize: 30,
+            styleObj:{
+                color: 'red',
+                fontSize: '30px'
+            },
+            styleObj2:{
+                border: '1px solid #dedede'
+
+            }
+
+        }
+    })
+</script>
+
+
+
+</body>
+</html>

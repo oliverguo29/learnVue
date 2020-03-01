@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定class2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+
+<div id="app">
+    <div :class="classObj" class="mydiv2">{{message}}</div>
+    <div :class="[mydiv1Class,mydiv3Class]">{{message}}</div>
+</div>
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+           message:"hello",
+            flag: true,
+            hasBorder: true,
+            mydiv1Class : 'mydiv1',
+            mydiv3Class : 'mydiv3'
+        },
+        computed:{
+            classObj(){
+                return{
+                    mydiv1: this.flag,
+                    mydiv3: this.hasBorder
+                }
+            }
+        }
+    })
+</script>
+
+<style>
+    .mydiv1{
+        front-weight:bold;
+        color: aqua;
+    }
+
+    .mydiv2{
+       font-size: 30px;
+    }
+
+    .mydiv3{
+        border: 1px solid #dedede;
+    }
+
+
+</style>
+
+
+
+</body>
+</html>
