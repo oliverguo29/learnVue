@@ -8,6 +8,7 @@
 <body>
 
 <div id="app">
+    <input type="number" v-model.number="num" >
     <table border="1">
         <tr v-for="i in num">
             <td v-for="j in i">{{j}}*{{i}}={{j*i}}</td>
