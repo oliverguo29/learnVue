@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <ao title="组件1"></ao>
+    <ao title="组件2"></ao>
+    <hr>
+    <myblog @sayhello="hello" v-for="(blog,index) in blogs" :title="blog.title" :date="blog.date" :author="blog.author" :key></myblog>
+</div>
+
+
+<script>
+    Vue.component('ao', {
+       data(){
+           return{
+               counter:0
+           }
+       },
+        props: ['title'],
+        template: '<div><button v-on:click="counter++">hello {{counter}}!</button><div>{{title}}</div></div>'
+    })
+
+
+
+    Vue.component('myblog',{
+        props: ['title','date','author'],
+        template: '<div>' +
+            '<div>{{title}}</div>'+
+            '<div>{{date}}--{{author}}</div>'+
+                '<button @click="$emit(\'sayhello\',title)"></button>'+
+            '</div>'
+
+    })
+
+    var app = new Vue({
+        el: '#app',
+        methods:{
+            hello(val){
+                console.log("hello "+val+"!")
+            }
+        },
+        data: {
+            blogs:[
+                {
+                    title:'title1',
+                    date:'2020-3-2',
+                    author:'ao1'
+                },
+                {
+                    title:'title2',
+                    date:'2020-3-2',
+                    author:'ao2'
+                },
+                {
+                    title:'title3',
+                    date:'2020-3-2',
+                    author:'ao3'
+                }
+            ]
+        }
+    })
+
+</script>
+
+</body>
+</html>
